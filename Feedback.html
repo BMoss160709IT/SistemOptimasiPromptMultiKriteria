@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback - RMeducation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body { 
+      background: #1a1a1a; 
+      font-family: 'Segoe UI', sans-serif; 
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      color: #e0e0e0;
+    }
+
+    .sidebar {
+      background: #2d2d2d;
+      border-right-color: #404040;
+    }
+
+    .nav-link {
+      color: #e0e0e0;
+    }
+
+    .nav-link:hover {
+      background: #404040;
+      color: #4dabf7;
+    }
+
+    .card-custom {
+      background: #2d2d2d;
+      color: #e0e0e0;
+    }
+
+    .text-muted {
+      color: #b0b0b0 !important;
+    }
+
+    .form-control {
+      background: #404040;
+      border: 1px solid #555;
+      color: #e0e0e0;
+    }
+
+    .form-control:focus {
+      background: #404040;
+      border-color: #0066ff;
+      color: #e0e0e0;
+      box-shadow: 0 0 0 0.25rem rgba(0, 102, 255, 0.25);
+    }
+
+    .form-select {
+      background: #404040;
+      border: 1px solid #555;
+      color: #e0e0e0;
+    }
+
+    .form-select:focus {
+      background: #404040;
+      border-color: #0066ff;
+      color: #e0e0e0;
+      box-shadow: 0 0 0 0.25rem rgba(0, 102, 255, 0.25);
+    }
+
+    /* Light Mode */
+    body.light-mode {
+      background: #f5f7fb;
+      color: #333;
+    }
+
+    body.light-mode .sidebar {
+      background: #fff;
+      border-right-color: #eaeaea;
+    }
+
+    body.light-mode .nav-link {
+      color: #333;
+    }
+
+    body.light-mode .nav-link:hover {
+      background: #f0f4ff;
+      color: #0066ff;
+    }
+
+    body.light-mode .card-custom {
+      background: #fff;
+      color: #333;
+    }
+
+    body.light-mode .text-muted {
+      color: #6c757d !important;
+    }
+
+    body.light-mode .form-control {
+      background: #fff;
+      border: 1px solid #ced4da;
+      color: #333;
+    }
+
+    body.light-mode .form-control:focus {
+      background: #fff;
+      border-color: #0066ff;
+      color: #333;
+      box-shadow: 0 0 0 0.25rem rgba(0, 102, 255, 0.25);
+    }
+
+    body.light-mode .form-select {
+      background: #fff;
+      border: 1px solid #ced4da;
+      color: #333;
+    }
+
+    body.light-mode .form-select:focus {
+      background: #fff;
+      border-color: #0066ff;
+      color: #333;
+      box-shadow: 0 0 0 0.25rem rgba(0, 102, 255, 0.25);
+    }
+
+    /* Overlay untuk mobile */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
+    }
+    .sidebar-overlay.active {
+      display: block;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      border-right: 1px solid #404040;
+      padding: 20px 10px;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      overflow-x: hidden;
+    }
+    
+    .sidebar .brand {
+      font-weight: bold;
+      font-size: 18px;
+      color: #0066ff;
+      text-align: center;
+      margin-bottom: 30px;
+      display: block;
+      white-space: nowrap;
+    }
+    
+    .sidebar .nav-link {
+      font-weight: 500;
+      margin: 5px 0;
+      border-radius: 8px;
+      padding: 10px 15px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+    }
+    
+    .sidebar .nav-link.active {
+      background: #0066ff;
+      color: #fff;
+    }
+
+    /* Sidebar collapsed untuk desktop */
+    .sidebar.collapsed {
+      width: 70px;
+    }
+    .sidebar.collapsed .brand,
+    .sidebar.collapsed .nav-link span {
+      display: none;
+    }
+    .sidebar.collapsed .nav-link {
+      justify-content: center;
+      padding: 10px;
+    }
+
+    /* Content */
+    .content {
+      margin-left: 220px;
+      transition: all 0.3s ease;
+      min-height: 100vh;
+    }
+    .content.expanded {
+      margin-left: 70px;
+    }
+
+    /* Top Navbar */
+    .topbar {
+      background: #0066ff;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .toggle-btn {
+      font-size: 22px;
+      cursor: pointer;
+      margin-right: 15px;
+      padding: 8px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+    .toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .topbar-title {
+      font-weight: bold;
+      font-size: 18px;
+      flex: 1;
+    }
+
+    /* Dark Mode Toggle */
+    .dark-mode-toggle {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      margin-left: auto;
+    }
+    
+    .dark-mode-toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    body.light-mode .dark-mode-toggle {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    body.light-mode .dark-mode-toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Testimonial Cards */
+    .testimonial-card {
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border: none;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .star-rating {
+      color: #ffc107;
+      font-size: 1.1rem;
+    }
+
+    /* Form Styling */
+    .feedback-form {
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border: none;
+      padding: 2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feedback-form .btn {
+      margin-top: auto;
+    }
+
+    /* Responsive untuk tablet */
+    @media (max-width: 992px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      .sidebar.active {
+        transform: translateX(0);
+      }
+      .content {
+        margin-left: 0;
+      }
+      .content.expanded {
+        margin-left: 0;
+      }
+    }
+
+    /* Responsive untuk mobile */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 280px;
+        transform: translateX(-100%);
+      }
+      .sidebar.active {
+        transform: translateX(0);
+      }
+      .sidebar.collapsed {
+        width: 280px;
+      }
+      .sidebar.collapsed .brand,
+      .sidebar.collapsed .nav-link span {
+        display: block;
+      }
+      .sidebar.collapsed .nav-link {
+        justify-content: flex-start;
+        padding: 10px 15px;
+      }
+      .content {
+        margin-left: 0 !important;
+      }
+      .topbar {
+        padding: 12px 15px;
+      }
+      .toggle-btn {
+        font-size: 20px;
+      }
+      .topbar-title {
+        font-size: 16px;
+      }
+    }
+
+    /* Animasi smooth */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .sidebar, .content {
+      will-change: transform, margin-left;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Overlay untuk mobile -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <a href="#" class="brand">RMeducation</a>
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a href="Indexx.html" class="nav-link">
+        <i class="bi bi-house-door me-2"></i> 
+        <span>Beranda</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="literasi2.html" class="nav-link">
+        <i class="bi bi-journal-text me-2"></i> 
+        <span>Materi Literasi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="numerasi2.html" class="nav-link">
+        <i class="bi bi-calculator me-2"></i> 
+        <span>Materi Numerasi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="Tentang kami.html" class="nav-link">
+        <i class="bi bi-info-circle me-2"></i> 
+        <span>Tentang Kami</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="Feedback.html" class="nav-link active">
+        <i class="bi bi-chat-heart me-2"></i> 
+        <span>Feedback</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Main Content -->
+<div class="content" id="content">
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="toggle-btn" id="toggleBtn">
+      <i class="bi bi-list"></i>
+    </div>
+    <div class="topbar-title">Feedback</div>
+    <button class="dark-mode-toggle" id="darkModeToggle">
+      <i class="bi bi-sun-fill" id="darkModeIcon"></i>
+    </button>
+  </div>
+
+  <div class="p-4">
+    <h3 class="fw-bold mb-4">Testimoni Pengguna</h3>
+
+    <!-- Testimonials -->
+    <div class="row g-4 mb-5">
+      <div class="col-lg-6">
+        <div class="testimonial-card card-custom">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+              <i class="bi bi-person-fill text-white fs-4"></i>
+            </div>
+            <div>
+              <h6 class="mb-0">Sari Indah</h6>
+              <small class="text-muted">Siswa Kelas 11 IPA</small>
+            </div>
+          </div>
+          <div class="star-rating mb-2">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <p class="mb-0">"Platform RMeducation sangat membantu saya memahami materi literasi. Video pembelajaran yang interaktif membuat belajar jadi lebih menyenangkan!"</p>
+        </div>
+      </div>
+      
+      <div class="col-lg-6">
+        <div class="testimonial-card card-custom">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-success rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+              <i class="bi bi-person-fill text-white fs-4"></i>
+            </div>
+            <div>
+              <h6 class="mb-0">Ahmad Rizki</h6>
+              <small class="text-muted">Siswa Kelas 10</small>
+            </div>
+          </div>
+          <div class="star-rating mb-2">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star"></i>
+          </div>
+          <p class="mb-0">"Materi numerasi di RMeducation mudah dipahami. Saya yang awalnya kesulitan dengan matematika, sekarang lebih percaya diri!"</p>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="testimonial-card card-custom">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+              <i class="bi bi-person-fill text-white fs-4"></i>
+            </div>
+            <div>
+              <h6 class="mb-0">Maya Putri</h6>
+              <small class="text-muted">Siswa Kelas 12 IPS</small>
+            </div>
+          </div>
+          <div class="star-rating mb-2">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <p class="mb-0">"Interface yang user-friendly dan konten yang berkualitas. RMeducation benar-benar membantu persiapan ujian saya!"</p>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="testimonial-card card-custom">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+              <i class="bi bi-person-fill text-white fs-4"></i>
+            </div>
+            <div>
+              <h6 class="mb-0">Dani Pratama</h6>
+              <small class="text-muted">Siswa Kelas 11 IPS</small>
+            </div>
+          </div>
+          <div class="star-rating mb-2">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star"></i>
+          </div>
+          <p class="mb-0">"Bisa belajar kapan saja dan di mana saja. Fitur dark mode juga nyaman untuk belajar malam hari!"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kuesioner -->
+    <h3 class="fw-bold mb-4">Kuesioner Feedback</h3>
+    
+    <!-- Penjelasan Tujuan -->
+    <div class="card-custom mb-4 p-4">
+      <div class="row align-items-center">
+        <div class="col-md-2 text-center mb-3 mb-md-0">
+          <i class="bi bi-clipboard-data fs-1 text-info"></i>
+        </div>
+        <div class="col-md-10">
+          <h5 class="mb-3">Mengapa Kami Menyediakan Kuesioner?</h5>
+          <p class="mb-2">Feedback dari pengguna adalah kunci utama dalam pengembangan platform RMeducation. Melalui kuesioner ini, kami bertujuan untuk:</p>
+          <ul class="mb-0">
+            <li>Mengevaluasi efektivitas metode pembelajaran yang kami sediakan</li>
+            <li>Memahami kebutuhan dan preferensi siswa dalam proses belajar</li>
+            <li>Mengidentifikasi area yang perlu diperbaiki dan dikembangkan</li>
+            <li>Meningkatkan kualitas konten dan fitur platform secara berkelanjutan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="feedback-form card-custom text-center">
+          <i class="bi bi-journal-text fs-1 text-warning mb-3"></i>
+          <h5 class="mb-3">Kuesioner Pre-Test</h5>
+          <p class="text-muted mb-4">Berikan penilaian Anda terhadap kualitas materi dan pembelajaran literasi</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtuPxjBP3QjB-Kkodft6QGB7_IY4YKLB9_8_AEcZO-9W5Efw/viewform?usp=dialog" target="_blank" class="btn btn-warning w-100">
+            <i class="bi bi-link-45deg me-2"></i>Isi Kuesioner Literasi
+          </a>
+        </div>
+      </div>
+      
+      <div class="col-lg-6">
+        <div class="feedback-form card-custom text-center">
+          <i class="bi bi-journal-text fs-1 text-success mb-3"></i>
+          <h5 class="mb-3">Kuesioner Post-Test</h5>
+          <p class="text-muted mb-4">Evaluasi efektivitas pembelajaran numerasi dan metode pengajaran matematika</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSddm0dLuglH5ebUqhhma_ytnw0yiSaDxOfYRAZOaxljKd70JA/viewform?usp=header" target="_blank" class="btn btn-success w-100">
+            <i class="bi bi-link-45deg me-2"></i>Isi Kuesioner Numerasi
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  const toggleBtn = document.getElementById("toggleBtn");
+  const sidebar = document.getElementById("sidebar");
+  const content = document.getElementById("content");
+  const sidebarOverlay = document.getElementById("sidebarOverlay");
+  const darkModeToggle = document.getElementById("darkModeToggle");
+  const darkModeIcon = document.getElementById("darkModeIcon");
+  
+  // Dark Mode functionality with localStorage sync
+  function initDarkMode() {
+    // Check localStorage first, default to dark mode
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-mode');
+      darkModeIcon.className = 'bi bi-moon-fill';
+    } else {
+      document.body.classList.remove('light-mode');
+      darkModeIcon.className = 'bi bi-sun-fill';
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+  
+  function toggleDarkMode() {
+    document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.contains('light-mode');
+    
+    darkModeIcon.className = isLight ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    
+    // Add smooth transition effect
+    document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+    setTimeout(() => {
+      document.body.style.transition = '';
+    }, 300);
+  }
+  
+  // Initialize dark mode on page load
+  initDarkMode();
+  
+  // Event listener for dark mode toggle
+  darkModeToggle.addEventListener('click', toggleDarkMode);
+  
+  // Fungsi untuk mendeteksi ukuran layar
+  function isMobile() {
+    return window.innerWidth <= 992;
+  }
+  
+  // Fungsi toggle sidebar
+  function toggleSidebar() {
+    if (isMobile()) {
+      // Mode mobile/tablet - gunakan overlay dan transform
+      sidebar.classList.toggle("active");
+      sidebarOverlay.classList.toggle("active");
+      
+      // Prevent body scroll when sidebar is open on mobile
+      if (sidebar.classList.contains("active")) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
+    } else {
+      // Mode desktop - collapse sidebar
+      sidebar.classList.toggle("collapsed");
+      content.classList.toggle("expanded");
+    }
+  }
+  
+  // Event listener untuk toggle button
+  toggleBtn.addEventListener("click", toggleSidebar);
+  
+  // Event listener untuk overlay (tutup sidebar saat overlay diklik)
+  sidebarOverlay.addEventListener("click", function() {
+    sidebar.classList.remove("active");
+    sidebarOverlay.classList.remove("active");
+    document.body.style.overflow = "auto";
+  });
+  
+  // Event listener untuk resize window
+  window.addEventListener("resize", function() {
+    // Reset styles saat resize
+    if (!isMobile()) {
+      sidebar.classList.remove("active");
+      sidebarOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+    } else {
+      sidebar.classList.remove("collapsed");
+      content.classList.remove("expanded");
+    }
+  });
+  
+  // Tutup sidebar saat link diklik pada mobile
+  const navLinks = sidebar.querySelectorAll(".nav-link");
+  navLinks.forEach(link => {
+    link.addEventListener("click", function() {
+      if (isMobile() && sidebar.classList.contains("active")) {
+        sidebar.classList.remove("active");
+        sidebarOverlay.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    });
+  });
+  
+  // Handle swipe gesture untuk mobile (optional)
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  
+  document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+  
+  function handleSwipe() {
+    if (!isMobile()) return;
+    
+    const swipeDistance = touchEndX - touchStartX;
+    
+    // Swipe right to open (from left edge)
+    if (swipeDistance > 50 && touchStartX < 50 && !sidebar.classList.contains("active")) {
+      toggleSidebar();
+    }
+    
+    // Swipe left to close
+    if (swipeDistance < -50 && sidebar.classList.contains("active")) {
+      sidebar.classList.remove("active");
+      sidebarOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  }
+</script>
+
+</body>
+</html>
