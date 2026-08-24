@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - RMeducation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body { 
+      background: #1a1a1a; 
+      font-family: 'Segoe UI', sans-serif; 
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      color: #e0e0e0;
+    }
+
+    .sidebar {
+      background: #2d2d2d;
+      border-right-color: #404040;
+    }
+
+    .nav-link {
+      color: #e0e0e0;
+    }
+
+    .nav-link:hover {
+      background: #404040;
+      color: #4dabf7;
+    }
+
+    .card-custom {
+      background: #2d2d2d;
+      color: #e0e0e0;
+    }
+
+    .text-muted {
+      color: #b0b0b0 !important;
+    }
+
+    /* Light Mode */
+    body.light-mode {
+      background: #f5f7fb;
+      color: #333;
+    }
+
+    body.light-mode .sidebar {
+      background: #fff;
+      border-right-color: #eaeaea;
+    }
+
+    body.light-mode .nav-link {
+      color: #333;
+    }
+
+    body.light-mode .nav-link:hover {
+      background: #f0f4ff;
+      color: #0066ff;
+    }
+
+    body.light-mode .card-custom {
+      background: #fff;
+      color: #333;
+    }
+
+    body.light-mode .text-muted {
+      color: #6c757d !important;
+    }
+
+    /* Gradient Info Box */
+    .gradient-info {
+      background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%) !important;
+    }
+
+    body.light-mode .gradient-info {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    }
+
+    /* Overlay untuk mobile */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
+    }
+    .sidebar-overlay.active {
+      display: block;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      border-right: 1px solid #404040;
+      padding: 20px 10px;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      overflow-x: hidden;
+    }
+    
+    .sidebar .brand {
+      font-weight: bold;
+      font-size: 18px;
+      color: #0066ff;
+      text-align: center;
+      margin-bottom: 30px;
+      display: block;
+      white-space: nowrap;
+    }
+    
+    .sidebar .nav-link {
+      font-weight: 500;
+      margin: 5px 0;
+      border-radius: 8px;
+      padding: 10px 15px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+    }
+    
+    .sidebar .nav-link.active {
+      background: #0066ff;
+      color: #fff;
+    }
+
+    /* Sidebar collapsed untuk desktop */
+    .sidebar.collapsed {
+      width: 70px;
+    }
+    .sidebar.collapsed .brand,
+    .sidebar.collapsed .nav-link span {
+      display: none;
+    }
+    .sidebar.collapsed .nav-link {
+      justify-content: center;
+      padding: 10px;
+    }
+
+    /* Content */
+    .content {
+      margin-left: 220px;
+      transition: all 0.3s ease;
+      min-height: 100vh;
+    }
+    .content.expanded {
+      margin-left: 70px;
+    }
+
+    /* Top Navbar */
+    .topbar {
+      background: #0066ff;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .toggle-btn {
+      font-size: 22px;
+      cursor: pointer;
+      margin-right: 15px;
+      padding: 8px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+    .toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .topbar-title {
+      font-weight: bold;
+      font-size: 18px;
+      flex: 1;
+    }
+
+    /* Dark Mode Toggle */
+    .dark-mode-toggle {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      margin-left: auto;
+    }
+    
+    .dark-mode-toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    body.light-mode .dark-mode-toggle {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    body.light-mode .dark-mode-toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Card & stats */
+    .card-custom { 
+      border-radius: 16px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border: none;
+    }
+    .stat-box { 
+      border-radius: 16px; 
+      padding: 20px; 
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .stat-blue { background: linear-gradient(135deg,#4e73df,#224abe); }
+    .stat-purple { background: linear-gradient(135deg,#6f42c1,#5a2d91); }
+    .stat-orange { background: linear-gradient(135deg,#fd7e14,#d9480f); }
+
+    /* Progress bar */
+    .progress { 
+      height: 20px; 
+      border-radius: 12px; 
+      font-weight: bold; 
+      font-size: 14px; 
+    }
+
+    /* Responsive untuk tablet */
+    @media (max-width: 992px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      .sidebar.active {
+        transform: translateX(0);
+      }
+      .content {
+        margin-left: 0;
+      }
+      .content.expanded {
+        margin-left: 0;
+      }
+    }
+
+    /* Responsive untuk mobile */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 280px;
+        transform: translateX(-100%);
+      }
+      .sidebar.active {
+        transform: translateX(0);
+      }
+      .sidebar.collapsed {
+        width: 280px;
+      }
+      .sidebar.collapsed .brand,
+      .sidebar.collapsed .nav-link span {
+        display: block;
+      }
+      .sidebar.collapsed .nav-link {
+        justify-content: flex-start;
+        padding: 10px 15px;
+      }
+      .content {
+        margin-left: 0 !important;
+      }
+      .topbar {
+        padding: 12px 15px;
+      }
+      .toggle-btn {
+        font-size: 20px;
+      }
+      .topbar-title {
+        font-size: 16px;
+      }
+      .stat-box {
+        margin-bottom: 15px;
+      }
+    }
+
+    /* Animasi smooth */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .sidebar, .content {
+      will-change: transform, margin-left;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Overlay untuk mobile -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <a href="#" class="brand">RMeducation</a>
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a href="Index.html" class="nav-link active">
+        <i class="bi bi-house-door me-2"></i> 
+        <span>Beranda</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="literasi2.html" class="nav-link">
+        <i class="bi bi-journal-text me-2"></i> 
+        <span>Materi Literasi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="numerasi2.html" class="nav-link">
+        <i class="bi bi-calculator me-2"></i> 
+        <span>Materi Numerasi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="Tentang kami.html" class="nav-link">
+        <i class="bi bi-info-circle me-2"></i> 
+        <span>Tentang Kami</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="Feedback.html" class="nav-link">
+        <i class="bi bi-chat-heart me-2"></i> 
+        <span>Feedback</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Main Content -->
+<div class="content" id="content">
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="toggle-btn" id="toggleBtn">
+      <i class="bi bi-list"></i>
+    </div>
+    <div class="topbar-title">Beranda</div>
+    <button class="dark-mode-toggle" id="darkModeToggle">
+      <i class="bi bi-sun-fill" id="darkModeIcon"></i>
+    </button>
+  </div>
+
+  <div class="p-4">
+    <!-- Greeting & Info Section -->
+    <div class="mb-4">
+      <h4 class="fw-bold">Selamat Datang, <span class="text-primary">Siswa!</span></h4>
+      <p class="text-muted">Semangat belajar hari ini! Lanjutkan perjalanan belajarmu 🚀</p>
+      
+      <!-- Info Box tentang RMeducation -->
+      <div class="card card-custom mt-4 border-0 gradient-info">
+        <div class="card-body text-white">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <h5 class="fw-bold mb-2">🎓 Tentang RMeducation</h5>
+              <p class="mb-2">Platform pembelajaran digital yang dirancang khusus untuk meningkatkan kemampuan literasi dan numerasi siswa Indonesia.</p>
+              <div class="row text-center mt-3">
+                <div class="col-4">
+                  <div class="d-flex flex-column align-items-center">
+                    <i class="bi bi-book fs-4 mb-1"></i>
+                    <small>Materi Lengkap</small>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="d-flex flex-column align-items-center">
+                    <i class="bi bi-play-circle fs-4 mb-1"></i>
+                    <small>Video Interaktif</small>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="d-flex flex-column align-items-center">
+                    <i class="bi bi-lightbulb fs-4 mb-1"></i>
+                    <small>Efektif & Inovatif</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 text-center">
+              <i class="bi bi-mortarboard-fill" style="font-size: 4rem; opacity: 0.8;"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Cards -->
+    <div class="row g-3 mb-4">
+      <div class="col-lg-6">
+        <div class="card card-custom p-4">
+          <h6 class="fw-bold text-warning">📘 Literasi</h6>
+          <p class="text-muted mb-3">Tingkatkan kemampuan membaca dan menulis Anda</p>
+          <div class="mb-3">
+            <h6 class="fw-semibold mb-2">Yang akan dipelajari:</h6>
+            <ul class="list-unstyled">
+              <li class="mb-1">• Penafsiran dan Deskripsi Suatu Objek</li>
+              <li class="mb-1">• Memahami Suatu Gambar yang Persuasif</li>
+              <li class="mb-1">• Informasi Terkini melalui Berita</li>
+              <li class="mb-1">• Cerita Ringkas yang Menghibur</li>
+              <li class="mb-1">• Serangkaian Panduan akan Suatu Hal</li>
+            </ul>
+          </div>
+          <a href="literasi2.html" class="btn btn-warning w-100">Mulai Belajar</a>
+        </div>
+      </div>
+      <div class="col-lg-6"> 
+        <div class="card card-custom p-4">
+          <h6 class="fw-bold text-success">🔢 Numerasi</h6>
+          <p class="text-muted mb-3">Kuasai konsep matematika dan logika berpikir</p>
+          <div class="mb-3">
+            <h6 class="fw-semibold mb-2">Yang akan dipelajari:</h6>
+            <ul class="list-unstyled">
+              <li class="mb-1">• Operasi bilangan dan aljabar dasar</li>
+              <li class="mb-1">• Geometri dan pengukuran</li>
+              <li class="mb-1">• Statistika dan probabilitas</li>
+              <li class="mb-1">• Pemecahahan masalah sosial dengan matematika</li>
+              <li class="mb-1"> SELAMAT BELAJAR!</li>
+            </ul>
+          </div>
+          <a href="numerasi2.html" class="btn btn-success w-100">Mulai Belajar</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  const toggleBtn = document.getElementById("toggleBtn");
+  const sidebar = document.getElementById("sidebar");
+  const content = document.getElementById("content");
+  const sidebarOverlay = document.getElementById("sidebarOverlay");
+  const darkModeToggle = document.getElementById("darkModeToggle");
+  const darkModeIcon = document.getElementById("darkModeIcon");
+  
+  // Dark Mode functionality with localStorage sync
+  function initDarkMode() {
+    // Check localStorage first, default to dark mode
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-mode');
+      darkModeIcon.className = 'bi bi-moon-fill';
+    } else {
+      document.body.classList.remove('light-mode');
+      darkModeIcon.className = 'bi bi-sun-fill';
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+  
+  function toggleDarkMode() {
+    document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.contains('light-mode');
+    
+    darkModeIcon.className = isLight ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    
+    // Add smooth transition effect
+    document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+    setTimeout(() => {
+      document.body.style.transition = '';
+    }, 300);
+  }
+  
+  // Initialize dark mode on page load
+  initDarkMode();
+  
+  // Event listener for dark mode toggle
+  darkModeToggle.addEventListener('click', toggleDarkMode);
+  
+  // Fungsi untuk mendeteksi ukuran layar
+  function isMobile() {
+    return window.innerWidth <= 992;
+  }
+  
+  // Fungsi toggle sidebar
+  function toggleSidebar() {
+    if (isMobile()) {
+      // Mode mobile/tablet - gunakan overlay dan transform
+      sidebar.classList.toggle("active");
+      sidebarOverlay.classList.toggle("active");
+      
+      // Prevent body scroll when sidebar is open on mobile
+      if (sidebar.classList.contains("active")) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
+    } else {
+      // Mode desktop - collapse sidebar
+      sidebar.classList.toggle("collapsed");
+      content.classList.toggle("expanded");
+    }
+  }
+  
+  // Event listener untuk toggle button
+  toggleBtn.addEventListener("click", toggleSidebar);
+  
+  // Event listener untuk overlay (tutup sidebar saat overlay diklik)
+  sidebarOverlay.addEventListener("click", function() {
+    sidebar.classList.remove("active");
+    sidebarOverlay.classList.remove("active");
+    document.body.style.overflow = "auto";
+  });
+  
+  // Event listener untuk resize window
+  window.addEventListener("resize", function() {
+    // Reset styles saat resize
+    if (!isMobile()) {
+      sidebar.classList.remove("active");
+      sidebarOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+    } else {
+      sidebar.classList.remove("collapsed");
+      content.classList.remove("expanded");
+    }
+  });
+  
+  // Tutup sidebar saat link diklik pada mobile
+  const navLinks = sidebar.querySelectorAll(".nav-link");
+  navLinks.forEach(link => {
+    link.addEventListener("click", function() {
+      if (isMobile() && sidebar.classList.contains("active")) {
+        sidebar.classList.remove("active");
+        sidebarOverlay.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    });
+  });
+  
+  // Handle swipe gesture untuk mobile (optional)
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  
+  document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+  
+  function handleSwipe() {
+    if (!isMobile()) return;
+    
+    const swipeDistance = touchEndX - touchStartX;
+    
+    // Swipe right to open (from left edge)
+    if (swipeDistance > 50 && touchStartX < 50 && !sidebar.classList.contains("active")) {
+      toggleSidebar();
+    }
+    
+    // Swipe left to close
+    if (swipeDistance < -50 && sidebar.classList.contains("active")) {
+      sidebar.classList.remove("active");
+      sidebarOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  }
+</script>
+
+</body>
+</html>
