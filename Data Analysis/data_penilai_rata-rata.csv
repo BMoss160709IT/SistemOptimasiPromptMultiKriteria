@@ -1,0 +1,161 @@
+kode_prompt,video,varian,rata_clarity,rata_structure,rata_creativity,rata_completeness,skor_total
+L1_V1,Pengenalan Teks Deskripsi,Teori,8.50,8.40,7.40,8.40,8.43
+L1_V2,Pengenalan Teks Deskripsi,Aplikasi,8.60,8.10,8.40,8.40,8.38
+L1_V3,Pengenalan Teks Deskripsi,Visual,7.80,7.50,9.00,8.30,8.15
+L1_V4,Pengenalan Teks Deskripsi,Interaktif,8.10,7.50,8.60,7.90,8.03
+L1_V5,Pengenalan Teks Deskripsi,Analitis,8.40,8.70,7.80,8.80,8.43
+L1_V6,Struktur Teks Deskripsi,Teori,9.10,9.30,7.70,8.80,8.73
+L1_V7,Struktur Teks Deskripsi,Aplikasi,8.70,8.50,8.60,8.70,8.63
+L1_V8,Struktur Teks Deskripsi,Visual,7.80,7.60,9.30,8.30,8.25
+L1_V9,Struktur Teks Deskripsi,Interaktif,7.90,7.60,8.70,7.60,7.95
+L1_V10,Struktur Teks Deskripsi,Analitis,8.60,8.80,8.10,9.50,8.75
+L1_V11,Kaidah Kebahasaan Teks Deskripsi,Teori,8.20,8.60,7.00,7.60,7.85
+L1_V12,Kaidah Kebahasaan Teks Deskripsi,Aplikasi,8.80,8.20,8.60,8.40,8.50
+L1_V13,Kaidah Kebahasaan Teks Deskripsi,Visual,8.10,7.40,9.20,8.10,8.20
+L1_V14,Kaidah Kebahasaan Teks Deskripsi,Interaktif,7.90,7.20,8.40,7.40,7.73
+L1_V15,Kaidah Kebahasaan Teks Deskripsi,Analitis,8.10,8.20,7.70,8.70,8.18
+L2_V1,Pengenalan Poster,Teori,8.20,8.20,7.20,7.80,7.85
+L2_V2,Pengenalan Poster,Aplikasi,8.60,8.10,8.50,8.20,8.35
+L2_V3,Pengenalan Poster,Visual,7.80,7.20,9.20,8.10,8.08
+L2_V4,Pengenalan Poster,Interaktif,8.10,7.40,8.60,7.70,7.95
+L2_V5,Pengenalan Poster,Analitis,7.80,8.20,7.60,8.30,7.98
+L2_V6,Jenis-Jenis Poster,Teori,8.60,8.40,7.20,8.20,8.10
+L2_V7,Jenis-Jenis Poster,Aplikasi,8.70,8.10,8.60,8.60,8.50
+L2_V8,Jenis-Jenis Poster,Visual,7.80,7.20,9.20,8.10,8.08
+L2_V9,Jenis-Jenis Poster,Interaktif,8.10,7.40,8.60,7.70,7.95
+L2_V10,Jenis-Jenis Poster,Analitis,8.00,8.20,7.70,8.70,8.15
+L2_V11,Unsur-Unsur Poster,Teori,8.10,8.70,7.20,7.80,7.95
+L2_V12,Unsur-Unsur Poster,Aplikasi,8.70,8.20,8.60,8.30,8.45
+L2_V13,Unsur-Unsur Poster,Visual,8.10,7.40,9.20,8.20,8.23
+L2_V14,Unsur-Unsur Poster,Interaktif,7.70,7.00,8.20,7.30,7.55
+L2_V15,Unsur-Unsur Poster,Analitis,7.80,8.20,7.70,8.40,8.03
+L3_V1,Pengenalan Teks Berita,Teori,8.60,8.40,7.20,8.20,8.10
+L3_V2,Pengenalan Teks Berita,Aplikasi,8.70,8.10,8.60,8.60,8.50
+L3_V3,Pengenalan Teks Berita,Visual,7.80,7.20,9.20,7.80,8.00
+L3_V4,Pengenalan Teks Berita,Interaktif,8.10,7.40,8.60,7.70,7.95
+L3_V5,Pengenalan Teks Berita,Analitis,8.20,8.60,7.70,8.60,8.28
+L3_V6,Struktur Teks Berita,Teori,9.10,9.10,7.60,8.50,8.58
+L3_V7,Struktur Teks Berita,Aplikasi,8.70,8.40,8.60,8.60,8.58
+L3_V8,Struktur Teks Berita,Visual,7.80,7.40,9.20,8.10,8.13
+L3_V9,Struktur Teks Berita,Interaktif,8.00,7.40,8.60,7.60,7.90
+L3_V10,Struktur Teks Berita,Analitis,8.50,8.70,8.20,9.30,8.68
+L3_V11,Kaidah Kebahasaan Teks Berita,Teori,8.10,8.60,7.20,7.70,7.90
+L3_V12,Kaidah Kebahasaan Teks Berita,Aplikasi,8.70,8.20,8.60,8.30,8.45
+L3_V13,Kaidah Kebahasaan Teks Berita,Visual,7.80,7.20,9.20,7.80,8.00
+L3_V14,Kaidah Kebahasaan Teks Berita,Interaktif,7.70,7.00,8.20,7.30,7.55
+L3_V15,Kaidah Kebahasaan Teks Berita,Analitis,7.80,8.20,7.70,8.40,8.03
+L4_V1,Pengenalan Cerpen,Teori,8.60,8.40,7.20,8.20,8.10
+L4_V2,Pengenalan Cerpen,Aplikasi,8.70,8.10,8.60,8.60,8.50
+L4_V3,Pengenalan Cerpen,Visual,7.80,7.40,9.20,8.10,8.13
+L4_V4,Pengenalan Cerpen,Interaktif,8.10,7.40,8.60,7.70,7.95
+L4_V5,Pengenalan Cerpen,Analitis,8.20,8.20,7.70,8.60,8.18
+L4_V6,Struktur Cerpen,Teori,8.60,8.90,7.10,8.10,8.18
+L4_V7,Struktur Cerpen,Aplikasi,8.70,8.10,8.60,8.60,8.50
+L4_V8,Struktur Cerpen,Visual,7.80,7.40,9.20,8.10,8.13
+L4_V9,Struktur Cerpen,Interaktif,7.70,7.00,8.20,7.30,7.55
+L4_V10,Struktur Cerpen,Analitis,8.20,8.60,7.70,8.80,8.33
+L4_V11,Unsur-Unsur Cerpen,Teori,8.60,8.40,7.20,8.20,8.10
+L4_V12,Unsur-Unsur Cerpen,Aplikasi,8.70,8.10,8.60,8.60,8.50
+L4_V13,Unsur-Unsur Cerpen,Visual,7.80,7.40,9.20,8.10,8.13
+L4_V14,Unsur-Unsur Cerpen,Interaktif,8.10,7.40,8.60,7.70,7.95
+L4_V15,Unsur-Unsur Cerpen,Analitis,8.20,8.60,7.70,8.80,8.33
+L4_V16,Kaidah Kebahasaan Cerpen,Teori,8.60,8.40,7.20,8.20,8.10
+L4_V17,Kaidah Kebahasaan Cerpen,Aplikasi,8.70,8.10,8.60,8.60,8.50
+L4_V18,Kaidah Kebahasaan Cerpen,Visual,7.80,7.40,9.20,8.10,8.13
+L4_V19,Kaidah Kebahasaan Cerpen,Interaktif,7.70,7.00,8.20,7.30,7.55
+L4_V20,Kaidah Kebahasaan Cerpen,Analitis,8.20,8.60,7.70,8.80,8.33
+L5_V1,Pengenalan Teks Prosedur,Teori,7.80,8.10,6.60,7.40,7.48
+L5_V2,Pengenalan Teks Prosedur,Aplikasi,8.60,8.00,8.50,8.20,8.33
+L5_V3,Pengenalan Teks Prosedur,Visual,7.80,7.20,9.20,7.80,8.00
+L5_V4,Pengenalan Teks Prosedur,Interaktif,8.10,7.40,8.50,7.60,7.90
+L5_V5,Pengenalan Teks Prosedur,Analitis,7.80,8.10,7.30,8.20,7.85
+L5_V6,Struktur Teks Prosedur,Teori,8.10,8.50,7.20,7.70,7.88
+L5_V7,Struktur Teks Prosedur,Aplikasi,8.70,8.10,8.60,8.30,8.43
+L5_V8,Struktur Teks Prosedur,Visual,7.80,7.20,9.20,7.80,8.00
+L5_V9,Struktur Teks Prosedur,Interaktif,7.70,7.00,8.20,7.30,7.55
+L5_V10,Struktur Teks Prosedur,Analitis,8.10,8.20,7.70,8.60,8.15
+L5_V11,Kaidah Kebahasaan Teks Prosedur,Teori,8.10,8.20,6.70,7.70,7.68
+L5_V12,Kaidah Kebahasaan Teks Prosedur,Aplikasi,8.70,8.10,8.60,8.30,8.43
+L5_V13,Kaidah Kebahasaan Teks Prosedur,Visual,7.80,7.20,9.20,7.80,8.00
+L5_V14,Kaidah Kebahasaan Teks Prosedur,Interaktif,7.70,7.00,8.20,7.30,7.55
+L5_V15,Kaidah Kebahasaan Teks Prosedur,Analitis,7.80,7.80,7.30,8.30,7.80
+L5_V16,Jenis-Jenis Teks Prosedur,Teori,7.80,8.10,6.60,7.40,7.48
+L5_V17,Jenis-Jenis Teks Prosedur,Aplikasi,8.20,8.10,8.60,8.20,8.28
+L5_V18,Jenis-Jenis Teks Prosedur,Visual,7.80,7.20,9.20,7.80,8.00
+L5_V19,Jenis-Jenis Teks Prosedur,Interaktif,7.70,7.00,8.20,7.30,7.55
+L5_V20,Jenis-Jenis Teks Prosedur,Analitis,7.80,7.80,7.30,8.30,7.80
+N1_V1,Pengenalan Statistika,Teori,7.80,8.10,6.70,7.40,7.50
+N1_V2,Pengenalan Statistika,Aplikasi,8.60,8.10,8.60,8.20,8.38
+N1_V3,Pengenalan Statistika,Visual,8.10,7.40,9.20,7.80,8.13
+N1_V4,Pengenalan Statistika,Interaktif,7.70,7.00,8.20,7.30,7.55
+N1_V5,Pengenalan Statistika,Analitis,8.20,8.20,7.30,8.30,8.00
+N1_V6,Statistika Deskriptif Bag.1,Teori,9.20,9.00,7.70,8.60,8.63
+N1_V7,Statistika Deskriptif Bag.1,Aplikasi,8.60,8.10,8.60,8.60,8.48
+N1_V8,Statistika Deskriptif Bag.1,Visual,7.80,7.20,9.20,7.80,8.00
+N1_V9,Statistika Deskriptif Bag.1,Interaktif,7.70,7.00,8.20,7.30,7.55
+N1_V10,Statistika Deskriptif Bag.1,Analitis,8.60,8.60,7.70,9.20,8.53
+N1_V11,Statistika Deskriptif Bag.2,Teori,8.60,8.40,7.70,8.20,8.23
+N1_V12,Statistika Deskriptif Bag.2,Aplikasi,8.60,8.30,8.60,8.60,8.53
+N1_V13,Statistika Deskriptif Bag.2,Visual,7.80,7.20,9.20,7.80,8.00
+N1_V14,Statistika Deskriptif Bag.2,Interaktif,7.70,7.00,8.20,7.30,7.55
+N1_V15,Statistika Deskriptif Bag.2,Analitis,8.60,8.60,7.70,9.20,8.53
+N1_V16,Probabilitas Bag.1,Teori,8.60,8.40,7.70,8.20,8.23
+N1_V17,Probabilitas Bag.1,Aplikasi,8.60,8.10,8.60,8.60,8.48
+N1_V18,Probabilitas Bag.1,Visual,8.10,7.40,9.20,8.10,8.20
+N1_V19,Probabilitas Bag.1,Interaktif,7.70,7.00,8.20,7.30,7.55
+N1_V20,Probabilitas Bag.1,Analitis,8.20,8.30,7.70,8.70,8.23
+N1_V21,Probabilitas Bag.2,Teori,8.20,8.30,7.30,7.90,7.93
+N1_V22,Probabilitas Bag.2,Aplikasi,8.20,8.20,8.60,8.30,8.33
+N1_V23,Probabilitas Bag.2,Visual,7.80,7.20,9.20,7.80,8.00
+N1_V24,Probabilitas Bag.2,Interaktif,7.30,6.60,7.80,6.90,7.15
+N1_V25,Probabilitas Bag.2,Analitis,8.20,8.30,7.70,8.70,8.23
+N2_V1,Keuntungan dan Kerugian,Teori,7.80,8.10,6.60,7.40,7.48
+N2_V2,Keuntungan dan Kerugian,Aplikasi,8.60,8.10,8.60,8.40,8.43
+N2_V3,Keuntungan dan Kerugian,Visual,7.80,7.20,9.20,8.00,8.05
+N2_V4,Keuntungan dan Kerugian,Interaktif,8.10,7.40,8.50,7.70,7.93
+N2_V5,Keuntungan dan Kerugian,Analitis,7.80,8.10,7.30,8.20,7.85
+N2_V6,Bunga dan Pajak,Teori,7.20,7.70,6.20,6.80,7.48
+N2_V7,Bunga dan Pajak,Aplikasi,8.60,8.10,8.60,8.60,8.48
+N2_V8,Bunga dan Pajak,Visual,8.10,7.40,9.20,8.10,8.20
+N2_V9,Bunga dan Pajak,Interaktif,7.70,7.00,8.20,7.30,7.55
+N2_V10,Bunga dan Pajak,Analitis,7.80,7.80,7.30,8.20,7.78
+N2_V11,Bruto Tara Netto,Teori,7.80,8.10,6.70,7.40,7.50
+N2_V12,Bruto Tara Netto,Aplikasi,8.60,8.10,8.60,8.60,8.48
+N2_V13,Bruto Tara Netto,Visual,8.10,7.40,9.20,8.10,8.20
+N2_V14,Bruto Tara Netto,Interaktif,7.70,7.00,8.20,7.30,7.55
+N2_V15,Bruto Tara Netto,Analitis,7.80,7.80,7.30,8.20,7.78
+N3_V1,Segi Banyak,Teori,8.10,8.50,7.10,7.60,7.83
+N3_V2,Segi Banyak,Aplikasi,8.60,8.10,8.60,8.60,8.48
+N3_V3,Segi Banyak,Visual,8.10,7.40,9.20,8.10,8.20
+N3_V4,Segi Banyak,Interaktif,7.70,7.00,8.20,7.30,7.55
+N3_V5,Segi Banyak,Analitis,8.20,8.20,7.70,8.70,8.20
+N3_V6,Lingkaran,Teori,8.10,8.50,7.10,7.60,7.83
+N3_V7,Lingkaran,Aplikasi,8.60,8.10,8.60,8.60,8.48
+N3_V8,Lingkaran,Visual,8.10,7.40,9.20,8.10,8.20
+N3_V9,Lingkaran,Interaktif,7.70,7.00,8.20,7.30,7.55
+N3_V10,Lingkaran,Analitis,8.20,8.20,7.70,8.70,8.20
+N3_V11,Bangun Ruang,Teori,8.10,8.50,7.10,7.60,7.83
+N3_V12,Bangun Ruang,Aplikasi,8.60,8.10,8.60,8.60,8.48
+N3_V13,Bangun Ruang,Visual,8.10,7.40,9.20,8.10,8.20
+N3_V14,Bangun Ruang,Interaktif,7.70,7.00,8.20,7.30,7.55
+N3_V15,Bangun Ruang,Analitis,8.50,8.60,8.00,9.20,8.58
+N4_V1,SPLDV SPLTV,Teori,8.60,8.40,7.70,8.20,8.23
+N4_V2,SPLDV SPLTV,Aplikasi,8.60,8.10,8.60,8.60,8.48
+N4_V3,SPLDV SPLTV,Visual,7.80,7.20,9.20,7.80,8.00
+N4_V4,SPLDV SPLTV,Interaktif,7.70,7.00,8.20,7.30,7.55
+N4_V5,SPLDV SPLTV,Analitis,8.50,8.60,7.80,9.20,8.53
+N4_V6,Barisan dan Deret,Teori,7.80,8.10,6.70,7.40,7.50
+N4_V7,Barisan dan Deret,Aplikasi,8.60,8.10,8.60,8.60,8.48
+N4_V8,Barisan dan Deret,Visual,8.10,7.40,9.20,8.10,8.20
+N4_V9,Barisan dan Deret,Interaktif,7.70,7.00,8.20,7.30,7.55
+N4_V10,Barisan dan Deret,Analitis,8.20,8.20,7.70,8.70,8.20
+N4_V11,Fungsi Aljabar Bag.1,Teori,8.60,8.40,7.70,8.20,8.23
+N4_V12,Fungsi Aljabar Bag.1,Aplikasi,8.60,8.10,8.60,8.60,8.48
+N4_V13,Fungsi Aljabar Bag.1,Visual,8.10,7.40,9.20,8.10,8.20
+N4_V14,Fungsi Aljabar Bag.1,Interaktif,7.70,7.00,8.20,7.30,7.55
+N4_V15,Fungsi Aljabar Bag.1,Analitis,8.50,8.60,7.80,9.20,8.53
+N4_V16,Fungsi Aljabar Bag.2,Teori,7.80,8.10,6.70,7.40,7.50
+N4_V17,Fungsi Aljabar Bag.2,Aplikasi,8.10,7.50,8.10,8.10,7.95
+N4_V18,Fungsi Aljabar Bag.2,Visual,7.80,7.00,8.70,7.80,7.83
+N4_V19,Fungsi Aljabar Bag.2,Interaktif,7.30,6.50,7.70,6.90,7.10
+N4_V20,Fungsi Aljabar Bag.2,Analitis,7.80,7.80,7.30,8.20,7.78
